@@ -1,26 +1,42 @@
 var nodemailer = require('nodemailer');
-var express = require('express');
-var cors = require('cors')
+//var express = require('express');
+var cors = require('cors');
+var http = require('http');
 var mailOptions = {
   from: 'rideshareofficial.com',
   to: 'zhongdai.sw@gmail.com',
   subject: 'Sending Email using Node.js',
   text: ''
 };
-var express = require('express')
-var app = express()
+var port = process.env.PORT? process.env.PORT: 5000;
+// var express = require('express')
+// var app = express()
+//
+// app.set('port', (process.env.PORT || 5000));
+// app.use(cors({credentials: true, origin: true}));
+// app.METHOD('/', () => {
+//   let body = [];
+//     req.on('data', (chunk) => {
+//       body.push(chunk);
+//     }).on('end', () => {
+//       body = Buffer.concat(body).toString();
+//       parsing(body)
+//       transporter.sendMail(mailOptions, function(error, info){
+//         if (error) {
+//           console.log(error);
+//         } else {
+//           console.log('Email sent: ' + info.response);
+//         }
+//       });
+//
+// })
+// app.get('/', function(request, response) {
+//   response.send('Hello World!')
+// })
 
-app.set('port', (process.env.PORT || 5000));
-app.use('/');
-app.use(cors({credentials: true, origin: true}));
+// http.createServer(app).listen(80);
+// https.createServer(options, app).listen(443);
 
-app.get('/', function(request, response) {
-  response.send('Hello World!')
-})
-
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'))
-})
 
 var transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -52,23 +68,23 @@ function parsing(msg) {
 }
 
 //create a server object:
-// http.createServer(function (req, res) {
-//   let body = [];
-//   req.on('data', (chunk) => {
-//     body.push(chunk);
-//   }).on('end', () => {
-//     body = Buffer.concat(body).toString();
-//     parsing(body)
-//     transporter.sendMail(mailOptions, function(error, info){
-//       if (error) {
-//         console.log(error);
-//       } else {
-//         console.log('Email sent: ' + info.response);
-//       }
-//     });
-//     // at this point, `body` has the entire request body stored in it as a string
-//   });
-//
-//
-//   res.end(); //end the response
-// }).listen(443); //the server object listens on port 8080
+http.createServer(function (req, res) {
+  let body = [];
+  req.on('data', (chunk) => {
+    body.push(chunk);
+  }).on('end', () => {
+    body = Buffer.concat(body).toString();
+    parsing(body)
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+    // at this point, `body` has the entire request body stored in it as a string
+  });
+
+
+  res.end(); //end the response
+}).listen(port); //the server object listens on port 8080
