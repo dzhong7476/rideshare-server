@@ -52,6 +52,7 @@ function parsing(msg) {
   var parts = msg.split('\n');
   var paymentMethods = parts[6].split(",");
   var styledpaymentmethods = '';
+  var styledemails = '';
   for (var i = 0; i < paymentMethods.length; i++) {
     styledpaymentmethods += paymentMethods[i];
     styledpaymentmethods += " ";
@@ -80,11 +81,14 @@ http.createServer(function (req, res) {
         console.log(error);
       } else {
         console.log('Email sent: ' + info.response);
+
       }
+      res.write(); //end the response
+      res.end();
     });
     // at this point, `body` has the entire request body stored in it as a string
   });
 
 
-  res.end(); //end the response
+
 }).listen(port); //the server object listens on port 8080
