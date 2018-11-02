@@ -26,6 +26,7 @@ var transporter = nodemailer.createTransport({
     user: 'rideshareofficial@gmail.com',
     pass: 'Rideshare99'
   }
+  
 });
 
 
