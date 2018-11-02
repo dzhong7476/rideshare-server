@@ -1,5 +1,6 @@
 var nodemailer = require('nodemailer');
-var express = require('express')
+var express = require('express');
+var cors = require('cors')
 var mailOptions = {
   from: 'rideshareofficial.com',
   to: 'zhongdai.sw@gmail.com',
@@ -10,7 +11,7 @@ var express = require('express')
 var app = express()
 
 app.set('port', (process.env.PORT || 5000))
-app.use(express.static(__dirname + '/public'))
+app.use(cors({credentials: true, origin: true}));
 
 app.get('/', function(request, response) {
   response.send('Hello World!')
@@ -26,7 +27,7 @@ var transporter = nodemailer.createTransport({
     user: 'rideshareofficial@gmail.com',
     pass: 'Rideshare99'
   }
-  
+
 });
 
 
