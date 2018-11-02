@@ -4,6 +4,7 @@
   "description": "server of rideshare",
   "main": "server.js",
   "dependencies": {
+    "http": "0.0.0",
     "nodemailer": "^4.6.8"
   },
   "devDependencies": {},
