@@ -1,0 +1,27 @@
+{
+  "name": "rideshare-server",
+  "version": "1.0.0",
+  "description": "server of rideshare",
+  "main": "server.js",
+  "dependencies": {
+    "nodemailer": "^4.6.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dzhong7476/rideshare-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "8.5.0"
+  },
+  "bugs": {
+    "url": "https://github.com/dzhong7476/rideshare-server/issues"
+  },
+  "homepage": "https://github.com/dzhong7476/rideshare-server#readme"
+}
