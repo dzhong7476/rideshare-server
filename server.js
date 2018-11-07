@@ -1,5 +1,6 @@
 var nodemailer = require('nodemailer');
 //var express = require('express');
+
 var cors = require('cors');
 var http = require('http');
 var mailOptions = {
@@ -66,7 +67,7 @@ function parsing(msg) {
   "PaymentMethods: " + styledpaymentmethods + "\n" +
   "Cost: " + parts[7] + "\n" +
   "Description: " + parts[8] + "\n";
-  
+
 }
 
 //create a server object:
