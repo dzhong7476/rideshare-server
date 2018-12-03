@@ -2,7 +2,6 @@ var nodemailer = require('nodemailer');
 //var express = require('express');
 
 var cors = require('cors');
-
 var http = require('http');
 var mailOptions = {
   from: 'rideshareofficial.com',
