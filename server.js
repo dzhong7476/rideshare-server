@@ -4,46 +4,19 @@ var nodemailer = require('nodemailer');
 var cors = require('cors');
 var http = require('http');
 var mailOptions = {
-  from: 'rideshareofficial.com',
-  to: 'zhongdai.sw@gmail.com',
+  from: 'XXXXXXXXXXXXX.com',
+  to: 'XXXXXXXXXXX@gmail.com',
   subject: 'Sending Email using Node.js',
   text: ''
 };
 var port = process.env.PORT? process.env.PORT: 5000;
-// var express = require('express')
-// var app = express()
-//
-// app.set('port', (process.env.PORT || 5000));
-// app.use(cors({credentials: true, origin: true}));
-// app.METHOD('/', () => {
-//   let body = [];
-//     req.on('data', (chunk) => {
-//       body.push(chunk);
-//     }).on('end', () => {
-//       body = Buffer.concat(body).toString();
-//       parsing(body)
-//       transporter.sendMail(mailOptions, function(error, info){
-//         if (error) {
-//           console.log(error);
-//         } else {
-//           console.log('Email sent: ' + info.response);
-//         }
-//       });
-//
-// })
-// app.get('/', function(request, response) {
-//   response.send('Hello World!')
-// })
-
-// http.createServer(app).listen(80);
-// https.createServer(options, app).listen(443);
 
 
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'rideshareofficial@gmail.com',
-    pass: 'Rideshare99'
+    user: 'XXXXXXXX@gmail.com',
+    pass: 'XXXXXXXX'
   }
 
 });
